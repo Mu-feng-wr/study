@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酷狗音乐</title>
+    <link rel="stylesheet" href="../style/index.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="header-content-left">
+                <img class="logo" src="../image/kugou_white.png" alt="kugou1">
+                <div class="search-input">
+                    <img class="icon-search" src="../image/icon_search_white.png" alt="">
+                    <input type="text" class="box">
+                </div>
+            </div>
+            <div class="header-content-right">
+                <ul class="header-b">
+                    <li><a href="">音乐人</a></li>
+                    <li><a href="">音频创作</a></li>
+                    <li><a href="">VIP会员</a></li>
+                    <li class="momo">|</li>
+                    <li class="jojo">登录</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="banner">
+            <ul class="apple-a">
+                <li class="luu">首页</li>
+                <li class="apple-li">榜单</li>
+                <li class="apple-li">听书</li>
+                <li class="apple-li">直播</li>
+                <li class="apple-li">商城</li>
+                <li class="apple-li">下载酷狗</li>
+                <li class="apple-li">商务合作</li>
+                <li>
+                    <span class="apple-li">更多</span>
+                    <ul class="ruu">
+                        <li>频道</li>
+                        <li>MV</li>
+                        <li>歌单</li>
+                        <li>歌手</li>
+                        <li>专辑</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <img src="../image/icon_arrow_left.png" alt="" class="left-arrow">
+        <img src="../image/icon_arrow_left.png" alt="" class="right-arrow">
+        <div class="download">
+            <ul class="mimi">
+                <li>
+                    <img src="../image/icon_download1_pc_gray.png" alt="电脑端" class="icon">
+                    <span>下载电脑版</span>
+                </li>
+                <li>
+                    <img src="../image/icon_download2_iphone_gray.png" alt="苹果端" class="icon">
+                    <span>下载iPhone版</span>
+                </li>
+                <li>
+                    <img src="../image/icon_download3_android_gray.png" alt="安卓端" class="icon">
+                    <span>下载Andriod版</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="acticle">
+        <div class="acticle-left">
+            <div class="kk-title">
+                <h3 class="kk-left">精选歌单</h3>
+                <div class="kk-right">更多</div>
+            </div>
+            <div class="kk-content">
+                <div class="kk-content-left">
+                    <div class="kk-content-left-a">
+                        <div class="kk-content-left-a1">234.1万</div>
+                    </div>
+                    <div class="kk-content-left-p1">
+                        欧美——Alpha Alpha 攻攻的声音
+                    </div>
+                </div>
+                <div class="kk-content-right">
+                    <div class="kk-content-right-p1">
+                        <div class="kk-content-left-a1">1098.77万</div>
+                    </div>
+                    <div class="kk-content-right-p1-b">总之前奏就爱上了</div>
+                    <div class="kk-content-right-p2">
+                        <div class="kk-content-left-a1">159.8万</div>
+                    </div>
+                    <div class="kk-content-right-p2-d">五月天&林宥嘉</div>
+                    <div class="kk-content-right-p3">
+                        <div class="kk-content-left-a1">117.5万</div>
+                    </div>
+                    <div class="kk-content-right-p3-f">你可能听过的悲伤的歌曲</div>
+                    <div class="kk-content-right-p4">
+                        <div class="kk-content-left-a1">1240.6万</div>
+                    </div>
+                    <div class="kk-content-right-p4-h">纵享丝滑</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="acticle-right">
+            <div class="gg-title">
+                <div class="gg-title-a">
+                    <div class="gg-left">热门榜单</div>
+                    <div class="gg-right">更多</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
+<script>
+    function loop() {
+        let index = 0
+        let doc = document.querySelector('.nav')
+        let arr = ['../image/nav_1.jpg', '../image/20230918202555460186.jpg', '../image/20230918212521435993.jpg', '../image/20230919103942939754.jpg']
+        doc.style.backgroundImage = `url(${arr[index]})`
+        setInterval(() => {
+            index = index + 1
+            if (index > arr.length - 1) {
+                index = 0
+            }
+            doc.style.backgroundImage = `url(${arr[index]})`
+        }, 3000)
+    }
+    loop()
+</script>
