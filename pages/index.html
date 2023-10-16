@@ -74,7 +74,8 @@
         <div class="acticle-left cursor-pointer">
             <div class="kk-title">
                 <h3 class="kk-left ">精选歌单</h3>
-                <div class="kk-right">更多</div>
+                <div class="kk-right">更多
+                </div>
             </div>
             <div class="kk-content">
                 <div class="kk-content-left">
@@ -216,8 +217,8 @@
                     <div class="yy-c2">
                         <div class="yy-c4"></div>
                     </div>
-                    
-                  </div>
+
+                </div>
             </div>
             <div class="new_music">
                 <div class="music_item">
@@ -337,7 +338,8 @@
             <div class="mm-title">
                 <div class="mm-left">推荐MV</div>
                 <div class="mm-right cursor-pointer">更多
-                    <img src="../kk_right_gray.png" alt="">
+                    <img class="mm-right-img-1" src="../kk_right_gray.png" alt="">
+                    <img class="mm-right-img-2" src="../image/icon_arrow_right_blue.png" alt="">
                 </div>
             </div>
             <div class="nn-content">
@@ -371,18 +373,116 @@
                     </div>
                     <div class="tet-b">
                         <div class="tett cursor-pointer">Miss you BABY</div>
-                        
+
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
+    <div class="home">
+        <div class="home-start">
+            <div class="home-title">
+                <div class="home-title-left">
+                    <div class="home-title-left-a">听歌精选</div>
+                    <div class="home-title-left-b">
+                        <div class="iu cursor-pointer iv">
+                            <span>热门</span>
+                        </div>
+                        <div class="iu cursor-pointer iv">
+                            <span>小说</span>
+                        </div>
+                        <div class="iu cursor-pointer iv">
+                            <span>相声</span>
+                        </div>
+                        <div class="iu cursor-pointer iv">
+                            <span>儿童</span>
+                        </div>
+                        <div class="iu cursor-pointer iv">
+                            <span>情感</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-title-right cursor-pointer">更多
+                    <img class="home-icon-a" src="../kk_right_gray.png" alt="">
+                    <img class="home-icon-a1" src="../image/icon_arrow_right_blue.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="home-content">
+            <div class="home-content-tata">
+                <div class="tata-1">
+                    <img src="../image/home-content1.jpg" alt="" style=" width: 62px;height: 62px;">
+                </div>
+                <div> </div>
+                <div></div>
+            </div>
+            <div class="home-content-tata">
+                <div class="tata-1">
+                    <img src="../image/home-content1.jpg" alt="" style=" width: 62px;height: 62px;">
+                </div>
+                <div> </div>
+                <div></div>
+            </div>
+            <div class="home-content-tata">
+                <div class="tata-1">
+                    <img src="../image/home-content1.jpg" alt="" style=" width: 62px;height: 62px;">
+                </div>
+                <div> </div>
+                <div></div>
+            </div>
+            <div class="home-content-tata">
+                <div class="tata-1">
+                    <img src="../image/home-content1.jpg" alt="" style=" width: 62px;height: 62px;">
+                </div>
+                <div> </div>
+                <div></div>
+            </div>
+            <div class="home-content-tata">
+                <div class="tata-1">
+                    <img src="../image/home-content1.jpg" alt="" style=" width: 62px;height: 62px;">
+                </div>
+                <div> </div>
+                <div></div>
+            </div>
+            <div class="home-content-tata">
+                <div class="tata-1">
+                    <img src="../image/home-content1.jpg" alt="" style=" width: 62px;height: 62px;">
+                </div>
+                <div> </div>
+                <div></div>
+            </div>
+            <div class="home-content-tata">
+                <div class="tata-1">
+                    <img src="../image/home-content1.jpg" alt="" style=" width: 62px;height: 62px;">
+                </div>
+                <div> </div>
+                <div></div>
+            </div>
+            <div class="home-content-tata">
+                <div class="tata-1">
+                    <img src="../image/home-content1.jpg" alt="" style=" width: 62px;height: 62px;">
+                </div>
+                <div> </div>
+                <div></div>
+            </div>
+            <div class="home-content-tata">
+                <div class="tata-1">
+                    <img src="../image/home-content1.jpg" alt="" style=" width: 62px;height: 62px;">
+                </div>
+                <div> </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
 </body>
 
 </html>
 <script>
-    function loop() {
+    function loop () {
         let index = 0
         let doc = document.querySelector('.nav')
         let arr = ['../image/nav_1.jpg', '../image/20230918202555460186.jpg', '../image/20230918212521435993.jpg', '../image/20230919103942939754.jpg']
@@ -398,7 +498,7 @@
     loop()
 
 
-    function tab1() {
+    function tab1 () {
         let vvList = document.getElementsByClassName('vv')
         for (let i in vvList) {
             vvList[i].onmouseover = function () {
