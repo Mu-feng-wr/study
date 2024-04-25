@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回顾object.defineProperty</title>
+    <!-- 引入vue -->
+    <!-- <script src="../js/vue.js"></script> -->
+</head>
+
+<body>
+    <!-- 准备好一个容器 -->
+    <!-- 
+    <div id="root">
+    
+    </div> -->
+</body>
+
+</html>
+<script>
+    let number = 18
+    let person = {
+        name: "张三",
+        sex: '男',
+        // age: number
+    }
+    Object.defineProperty(person, 'age', {
+        // value: 18,
+        // enumerable: true,//控制属性是否可以枚举，默认值是false
+        // writable: true,//控制属性是否可以修改，默认值是false
+        // configurable: true,//控制属性是否可以被删除，默认值是false
+
+        //当有人读取person的age属性时，get函数（getter）就会被调用，且返回值就是age的值
+        get: function () {
+            console.log('有人读取了age属性')
+            return number
+        },
+
+        //当有人修改person的age属性时，set函数（setter）就会被调用，且会收到修改的具体值
+        set (value) {
+            console.log('有人修改了age属性,且值是', value)
+            number = value
+        }
+    })
+
+    // console.log(Object.keys(person))
+    for (let key in person)
+    console.log(person.age)
+
+</script>
+<!-- 一.Object.defineProperty()详解
+
+Object.defineProperty() 是 JavaScript 中用于定义或修改对象的属性的方法，可以控制属性的特性（如可枚举性、可配置性、可写性等）。
+
+Object.defineProperty() 方法的语法如下：
+
+Object.defineProperty(obj, prop, descriptor)
+obj：要在其上定义属性的对象。
+prop：要定义或修改的属性的名称。
+descriptor：属性的描述符对象，包含属性的特性设置。
+
+descriptor 对象包含以下属性：
+		configurable：属性是否可配置，默认为 false。
+		enumerable：属性是否可枚举，默认为 false。
+		value：属性的值，默认为 undefined。
+		writable：属性是否可写，默认为 false。
+		get：获取属性值的函数。
+		set：设置属性值的函数。
+复制代码
+ 1 let obj= {
+ 2  age : '18'
+ 3 }
+ 4 Object.defineProperty(obj,'name',{
+ 5     value : 'red'
+ 6 })
+ 7 Object.defineProperty(obj,'age',{
+ 8     value : '20'
+ 9 })
+10 console.log(obj) //{age: '20', name: 'red'}
+复制代码
+Object.defineProperty() 方法可以用来定义新属性或修改已有属性的特性。如果属性已经存在，Object.defineProperty() 方法将会更新属性的特性；如果属性不存在，Object.defineProperty() 方法将会创建一个新的属性。
+
+需要注意的是，使用 Object.defineProperty() 方法定义的属性默认情况下是不可配置的，这意味着不能使用 delete 关键字删除这些属性。如果需要定义可配置的属性，可以在 descriptor 对象中将 configurable 属性设置为 true。
+
+二.Object.defineProperty()工作原理 
+1.首先，检查传入的参数是否为对象。如果不是对象，则抛出 TypeError。
+
+2.接着，创建或修改指定对象的属性，需要传入三个参数：目标对象 obj、属性名 prop 和属性描述符 descriptor。
+
+3.属性描述符 descriptor 是一个包含属性特性的对象，可以包括 value、writable、enumerable、configurable、get 和 set 等属性。
+
+4.根据属性描述符中的设置，对属性进行定义或修改。例如，可以设置属性的值、可写性、可枚举性和可配置性等。
+
+5.创建或修改属性后，返回目标对象。
+
+在对属性进行定义或修改时，Object.defineProperty() 方法会根据属性描述符中的设置对属性进行相应的处理。例如，如果将 writable 设置为 false，则属性将变为只读；如果将 enumerable 设置为 true，则属性将变为可枚举。
+
+三.Object.defineProperty()作用
+
+1.定义新属性：可以使用 Object.defineProperty() 方法在对象上定义新的属性。通过设置 value 属性，可以为新属性赋初始值；通过设置 writable 属性，可以指定新属性是否可写；通过设置 enumerable 属性，可以指定新属性是否可枚举；通过设置 configurable 属性，可以指定新属性是否可配置。
+
+2.修改已有属性：如果对象上已经存在一个属性，可以使用 Object.defineProperty() 方法修改该属性的特性。例如，可以将现有属性的可写性修改为只读，或将现有属性的可枚举性修改为不可枚举等。
+
+3.精确控制属性特性：通过 Object.defineProperty() 方法，开发人员可以精确地控制属性的特性，例如可写性、可枚举性、可配置性等。这些特性对于确保代码的正确性和安全性非常重要。
+
+4.实现属性访问器（accessor）：除了可以定义普通属性之外，Object.defineProperty() 方法还可以用于定义属性访问器。属性访问器是一种特殊的属性，可以通过 get 和 set 方法来获取和设置属性的值。属性访问器提供了更灵活的属性操作方式，可以实现对属性值进行计算、验证等操作。
+
+综上所述，Object.defineProperty() 方法是一个非常强大和灵活的对象操作工具，可以用于定义新属性、修改现有属性、精确控制属性特性和实现属性访问器等多种目的。在实际开发中，开发人员经常会使用 Object.defineProperty() 方法来实现数据模型层的功能、界面控件的视图绑定等。
+
+四.Object.defineProperty()使用场景
+
+1.数据模型定义：在前端开发中，可以使用 Object.defineProperty() 来定义数据模型的属性。这样可以精确地控制属性的特性，例如是否可写、是否可枚举等，从而确保数据模型的正确性和安全性。
+
+2.属性访问控制：通过 Object.defineProperty() 方法，可以定义属性访问器，使用 get 和 set 方法控制属性的读取和赋值过程。这种方式可以实现对属性值进行计算、验证、转换等操作，增强了属性访问的灵活性。
+
+3.界面绑定：在一些前端框架中，如 Vue.js、React 等，可以利用 Object.defineProperty() 来实现属性变化的监听和界面数据的自动更新。通过定义属性访问器，在属性值发生变化时自动触发界面的更新，实现数据驱动视图的效果。
+
+4.对象扩展：在某些情况下，需要向现有对象中添加新的属性，并控制这些属性的特性。Object.defineProperty() 可以用来为现有对象动态添加新的属性，并设置属性的特性。
+
+5.库和框架开发：在编写库或框架时，可能需要对外暴露的接口进行控制，以确保接口的正确使用和防止误操作。Object.defineProperty() 可以用来定义接口的特性，限制接口的可写性、可配置性等。
+
+-->

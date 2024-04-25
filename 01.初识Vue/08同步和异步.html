@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>08同步和异步</title>
+		<script src="../js/vue.js"></script>
+		<script src="../js/axios.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			
+		</div>
+		<button @click="send()">发起请求</button>
+	</body>
+</html>
+<script>
+	Vue.config.productionTip=false
+	new Vue({
+		el:'#root',
+		data(){	
+			  return  new Promise(function(resolve,reject){
+				console.log(222)
+				resolve(),reject()
+			})
+				  
+			 
+		}
+	})
+		Promise()
+	console.log(111)
+	//promise
+	
+</script>
