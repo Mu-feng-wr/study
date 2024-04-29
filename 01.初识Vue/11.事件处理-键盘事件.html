@@ -9,9 +9,35 @@
 </head>
 
 <body>
+    <!-- 
+        1.vue中常用的按键别名：
+         回车=>enter
+         删除=>delete(捕获"删除”和“退格”键)
+         退出=>esc
+         空格=>space
+         换行=>tap(特殊，必须配合keydown去使用)
+         上=>up
+         下=>down
+         左=>left
+         右=>right
+
+        2.vue未提供的别名按键，可以使用按键原始的key值去绑定，但注意要转为kebab-case(短横线命名)
+
+        3.系统修饰键（用法特殊）：ctrl、alt、shift、meta
+                (1)配合keyup使用：按键修饰的同时，再按下其他键，随后释放其他键，事件才被触发
+                (2)配合keydown使用：正常触发事件
+        
+        4.也可以使用keyCode去指定具体按键(不推荐)
+
+        5.vue.config.keyCode自定义键名=键码，可以去定制按键别名
+
+
+        
+     -->
     <!-- 准备好一个容器 -->
     <div id="root">
         <h2>欢迎来到{{name}}学习</h2>
+        <input type="text" placeholder="按下回车按键显示输入" @keydown.ctrl.y="showInfo">
     </div>
 
 </body>
@@ -19,5 +45,18 @@
 </html>
 <script>
     Vue.config.productionTip = false//阻止vue在启动时候生成生产提示
-
+    // Vue.config.keyCodes.huiche = 13
+    new Vue({
+        el: '#root',
+        data: {
+            name: '尚硅谷'
+        },
+        methods: {
+            showInfo (e) {
+                // if (e.keyCodew !== 13) return
+                console.log(e.target.value)
+                console.log(e.key, e.keyCode)
+            }
+        }
+    })
 </script>
