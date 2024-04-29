@@ -92,10 +92,11 @@
 		methods: {
 			showInfo (e) {
 				alert("同学你好")
+				// console.log(this)//此处this是vm
 				// e.stopPropagation() ==  @click.stop 阻止事件冒泡（常用）
 				// e.preventDefault() ==  @click.prevent 阻止默认事件
 			},
-			showInfo (msg) {
+			showMsg (msg) {
 				console.log(msg)
 			},
 			demo () {
