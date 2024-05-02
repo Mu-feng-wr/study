@@ -34,6 +34,7 @@
         <h3>b的值是:{{numbers.b}}</h3>
         <button @click="numbers.b++">点我让b+1</button>
         <button @click="numbers={a:666,b:888}">彻底替换掉numbers</button>
+        {{numbers.c.d.e}}
     </div>
 </body>
 
@@ -45,10 +46,6 @@
         //属性
         data: {
             isHot: true,
-            numbers: {
-                a: 1,
-                b: 1
-            }
 
         },
         //计算属性
@@ -63,35 +60,21 @@
             }
         },
         watch: {
-            info: {
-                immediate: true,//初始化时让handler调用一下
-                //handler什么时候被调用？当isHot发生改变时
-                handler (newValue, oldValue) {
-                    console.log('isHot被修改了', newValue, oldValue)
-                }
-            },
-            //监视多级结构中某个属性的改变
-            // "numbers.a": {
+            //正常写法
+            // isHot: {
+            //     immediate: true,//初始化时让handler调用一下
             //     //handler什么时候被调用？当isHot发生改变时
-            //     handler () {
-            //         console.log('a被改变了')
+            //     handler (newValue, oldValue) {
+            //         console.log('isHot被修改了', newValue, oldValue)
             //     }
-            // }
-            numbers: {
-                //监视多级结构中所有属性的改变
-                deep: true,
-                handler () {
-                    console.log('numbers改变了')
-                }
+            // },
+            //简写
+            isHot (newValue, oldValue) {
+                console.log('isHot被修改了', newValue, oldValue)
             }
+
+
         }
     })
-    // vm.$watch('isHot', {
-    //     immediate: true,//初始化时让handler调用一下
-    //     //handler什么时候被调用？当isHot发生改变时
-    //     //回调函数handler
-    //     handler (newValue, oldValue) {
-    //         console.log('isHot被修改了', newValue, oldValue)
-    //     }
-    // })
+
 </script>
