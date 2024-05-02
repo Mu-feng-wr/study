@@ -64,7 +64,7 @@
             }
         },
         watch: {
-            info: {
+            isHot: {
                 immediate: true,//初始化时让handler调用一下
                 //handler什么时候被调用？当isHot发生改变时
                 handler (newValue, oldValue) {
