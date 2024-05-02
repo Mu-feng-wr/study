@@ -47,12 +47,13 @@
             //     }
             // },
             //简写
-            isHot (newValue, oldValue) {
-                console.log('isHot被修改了', newValue, oldValue)
-            }
-
-
-        }
+            // isHot (newValue, oldValue) {
+            //     console.log('isHot被修改了', newValue, oldValue)
+            // }
+        },
+    })
+    vm.$watch('isHot', function (newValue, oldValue) {
+        console.log('isHot被修改了', newValue, oldValue)
     })
 
 </script>
