@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18.9vue监测数据的原理—数组</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!--
+		 1.vue中的数据代理：
+			通过vm对象来代理data对象中属性的操作（读写）
+		2.	Vue中数据代理的好处：
+			更加方便的操作data属性
+		3.基本原理：
+				通过Object.defineProperty（）把data对象中的所有属性添加到vm上
+				为每一个添加vm上的属性都指定一个getter/setter
+				在getter/setter内部去操作（读/写）data中对应的数据
+			
+		 
+		 -->
+    <div id="root">
+        <h1>学校信息</h1>
+        <h2>学校名称：{{school.name}}</h2>
+        <h2>学校地址：{{school.address}}</h2>
+        <h2>校长是:{{school.leader}}</h2>
+        <br>
+        <h1>学生信息</h1>
+        <button @click="addSex">添加一个性别属性，默认值是男</button>
+        <h2>姓名：{{student.name}}</h2>
+        <h2>年龄：真实{{student.age.rAge}}岁,对外{{student.age.sAge}}岁</h2>
+        <h2>爱好</h2>
+        <ul>
+            <li v-for="(h,index) in student.hobby" :key="index">
+                {{h}}
+
+            </li>
+        </ul>
+        <h2 v-if="student.sex">性别：{{student.sex}}</h2>
+        <h2>朋友们</h2>
+        <ul>
+            <li v-for="(f,index) in student.friends" :key="index">
+                {{f.name}}--{{f.age}}
+
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    Vue.config.productionTip = false
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            school: {
+                name: '尚硅谷',
+                address: '宏福科技园',
+                leader: '一个帅气的男老师',
+            },
+
+            student: {
+                name: 'Tom',
+                age: {
+                    rAge: 40,
+                    sAge: 28,
+                },
+                // hobby: ['抽烟', '喝酒', '烫头'],
+                hobby: {
+                    h1: '抽烟',
+                    h2: '喝酒',
+                    h3: '烫头',
+                },
+                friends: [
+                    { name: 'Jarry', age: 19 },
+                    { name: 'Amy', age: 17 }
+                ]
+            }
+        },
+        methods: {
+            addSex () {
+                // Vue.set(this.student, 'sex', '男')
+                this.$set(this.student, 'sex', '男')
+            }
+        }
+    })
+</script>
