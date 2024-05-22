@@ -7,15 +7,18 @@
     <title>过滤器</title>
     <!-- 引入vue -->
     <script src="../js/vue.js"></script>
+    <script src="../js/dayjs.min.js"></script>
 </head>
 
 <!-- 
-    vue中有两种数据绑定方法：
-        1.单向数据绑定（ v-bind）：数据只能从data流向页面
-        2.双向数据绑定（ v-model）：数据不仅能从data流向页面，还可以从页面流向data
-        备注：
-        1.双向绑定一般都应用在表单类元素上（如：input、select等）
-        2.v-model:value 可以简写成v-model，因为v-model默认收集的就是value值
+   过滤器：
+    定义：对要显示的数据进行特定格式化后再显示（适用于一些简单逻辑处理）
+    语法：
+    1.注册过滤器：Vue.filter(name,callback)或new Vue({filters:{}})
+    2.过滤器使用：{{xxx|过滤器名}} 或v-bind：属性="xxx|过滤器名"
+    备注
+    1.过滤器也可以接收额外参数、多个过滤器也可以串联
+    2.并没有改变原本的数据，是产生新的对应的数据
  -->
 
 <body>
@@ -23,24 +26,68 @@
 
     <div id="root">
         <h2>显示格式化后的时间</h2>
-        <h3>现在是：{{time}}</h3>
-
+        <!-- 计算实现 -->
+        <h3>现在是：{{fmtTime}}</h3>
+        <!-- methods实现 -->
+        <h3>现在是：{{getFmtTime()}}</h3>
+        <!-- 过滤器显示 -->
+        <h3>现在是：{{time|timeFormater}}</h3>
+        <!-- 过滤器显示(传参) -->
+        <h3>现在是：{{time|timeFormater('YYYY-MM-DD')|mySlice}}</h3>
+        <h3 :x="msg|mySlice">尚硅谷</h3>
+    </div>
+    <div id="root2">
+        <h2>{{msg|mySlice}}</h2>
     </div>
 </body>
 
 </html>
 <script>
     Vue.config.productionTip = false//阻止vue在启动时生成生产提示
+    //全局过滤器
+    Vue.filter('mySlice', function (value) {
+
+        return value.slice(0, 4)
+
+    })
     new Vue({
         el: '#root',
         data: {
-            time: 1716370411769//时间戳
+            time: 1716370411769,
+            //时间戳
+            msg: '你好，尚硅谷！'
+
 
         },
         computed: {
             fmtTime () {
-                return
+                //format('YYYY-MM-DD HH:mm:ss')
+                return dayjs(this.time).format('YYYY年MM月DD日 HH:mm:ss')
             }
+        },
+        methods: {
+            getFmtTime () {
+                return dayjs(this.time).format('YYYY年MM月DD日 HH:mm:ss')
+            }
+        },
+        filters: {
+            //局部过滤器只有  new Vue能用
+            timeFormater (value, str = 'YYYY年MM月DD日 HH:mm:ss') {
+                console.log("@", value)
+                return dayjs(value).format(str)
+            },
+            // mySlice (value) {
+            //     console.log("@", value)
+            //     return value.slice(0, 4)
+            // }
+
+
+        }
+    })
+    new Vue({
+        el: '#root2',
+        data: {
+            msg: 'hello atgugu!'
         }
     })
 
