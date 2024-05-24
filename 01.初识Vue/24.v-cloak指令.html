@@ -6,28 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>v-cloak指令</title>
     <!-- 引入vue -->
-    <script type="text/javascript" src="../js/vue.js"></script>
 </head>
 
 <!-- 
- v-html指令:
-    1.作用:向指定节点中渲染包含html结构的内容。
-    2.与插值语法的区别：
-        （1）.v-html会替换掉节点中所有的内容，{{xx}}则不会。
-        （2）.v-html可以识别html结构。
-    3.严重注意：v-html有安全性问题！！！
-        （1）.在网站上动态渲染任意HTML是非常危险的，容易导致XSS攻击
-        （2）.一定要在可信的内容上使用v-html，永远不要在用户提交的内容上
-
- -->
+    v-cloak指令:
+    1.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性
+    2.使用css配合v-cloak可以解决网速慢时页面展示出{{xxx}}的问题
+    
+    
+-->
 
 <body>
     <!-- 准备好一个容器 -->
 
     <div id="root">
-        <div>{{name}}</div>
+        <div v-cloak>{{name}}</div>
 
     </div>
+    <script type="text/javascript" src="http://localhost:8080/resource/5s/vue.js"></script>
 </body>
 
 </html>
