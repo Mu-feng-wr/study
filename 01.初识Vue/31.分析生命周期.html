@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31.分析生命周期</title>
+    <!-- 引入vue -->
+    <script src="../js/vue.js"></script>
+</head>
+
+<!-- 
+ 
+ -->
+
+<body>
+    <!-- 准备好一个容器 -->
+
+    <div id="root">
+        <h2>当前的n值:{{n}}</h2>
+        <button @click="add">点我n+1</button>
+        <button @click="bye">点我销毁vm</button>
+    </div>
+</body>
+
+</html>
+<script>
+    Vue.config.productionTip = false//阻止vue在启动时生成生产提示
+
+    new Vue({
+
+        el: '#root',
+        // template: `
+        //     <div>
+        //         <h2>当前的n值:{{n}}</h2>
+        //         <button @click="add">点我n+1</button>
+        //     </div>
+        // `,
+        data: {
+            n: 1,
+        },
+        methods: {
+            add () {
+                console.log(' add')
+                this.n++
+            },
+            bye () {
+                this.$destroy()
+            }
+        },
+        beforeCreate () {
+            console.log('beforeCreate')
+
+            // debugger
+        },
+        created () {
+            console.log('created')
+
+        },
+        beforeMount () {
+            console.log('beforeMount')
+
+
+        },
+        //挂载完毕 Vue完成模板解析并把初始的真实DOM元素放入页面后（挂载完毕），调用 mounted 
+        mounted () {
+            console.log('mounted')
+            console.log(this)
+            // document.querySelector('h2').innerHTML = '哈哈哈'
+        },
+        beforeUpdate () {
+            console.log('beforeUpdate')
+
+        },
+        updated () {
+            console.log('updated')
+
+        },
+        beforeDestroy () {
+            console.log('beforeDestroy')
+
+
+        },
+        destroyed () {
+            console.log('destroyed')
+        },
+
+
+
+    })
+
+</script>
