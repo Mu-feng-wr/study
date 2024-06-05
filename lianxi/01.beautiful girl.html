@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01.beautiful girl</title>
+    <script src="../js/vue.js"></script>
+    <link rel="stylesheet" href="../lianxi/01.beautiful index.css">
+</head>
+
+<body>
+    <div id="root">
+        <div class="beauty">
+            <img alt="迪丽热巴" class="dili" :src="imgUrl">
+            <img src="../lianxi/img/icon_arrow_left.png" alt="" class="icon-left" @click="previous">
+            <img src="../lianxi/img/icon_arrow_left.png" alt="" class="icon-right" @click="next">
+            <div class="dian">
+                <div class="xiaoDian active"></div>
+                <div class="xiaoDian"></div>
+                <div class="xiaoDian"></div>
+                <div class="xiaoDian"></div>
+                <div class="xiaoDian"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    Vue.config.productionTip = false
+    //  要不是因为我知道有左右箭头，我还以为是图片自带的，样式写好点图片很黑的
+    new Vue({
+        el: '#root',
+        data () {
+            return {
+                images: [
+                    { id: 1, url: '../lianxi/img/dili01.jpeg' },
+                    { id: 2, url: '../lianxi/img/dili02.jpg' },
+                    { id: 3, url: '../lianxi/img/dili03.jpeg' },
+                    { id: 4, url: '../lianxi/img/dili04.jpg' },
+                    { id: 5, url: '../lianxi/img/dili05.jpg' }
+                ],
+                imgUrl: '../lianxi/img/dili01.jpeg',
+                imgIndex: 0
+            }
+        },
+        methods: {
+            previous () {
+
+            },
+            next () {
+
+            }
+        },
+    })
+</script>

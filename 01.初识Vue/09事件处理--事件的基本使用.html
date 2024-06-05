@@ -20,7 +20,7 @@
 	<div id="root">
 		<h2>欢迎来到{{name}}学习</h2>
 		<button @click="showInfo1">点我提示信息1(不传参)</button>
-		<button @click="showInfo2">点我提示信息2(传参)</button>
+		<button @click="showInfo2($event,66)">点我提示信息2(传参)</button>
 		<!-- v-on:xxx ==> @xxx -->
 	</div>
 </body>
