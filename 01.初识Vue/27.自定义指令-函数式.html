@@ -52,3 +52,39 @@
     })
 
 </script>
+<!-- created () {
+    this.images = [
+        { id: 1, url: '../lianxi/img/dili01.jpeg' },
+        { id: 2, url: '../lianxi/img/dili02.jpg' },
+        { id: 3, url: '../lianxi/img/dili03.jpeg' },
+        { id: 4, url: '../lianxi/img/dili04.jpg' },
+        { id: 5, url: '../lianxi/img/dili05.jpg' },
+    ]
+
+    this.imgUrl = this.images[this.imgIndex].url
+
+    this.timer = setInterval(() => {
+        this.imgIndex++
+        if (this.imgIndex == this.images.length) {
+            this.imgIndex = 0
+        }
+        this.imgUrl = this.images[this.imgIndex].url
+
+    }, 1000)
+},
+methods: {
+    previous () {
+        this.imgIndex--
+        if (this.imgIndex < 0) {
+            this.imgIndex = this.images.length - 1 //5
+        }
+        this.imgUrl = this.images[this.imgIndex].url
+    },
+    next () {
+        this.imgIndex++
+        if (this.imgIndex >= this.images.length) {
+            this.imgIndex = 0
+        }
+        this.imgUrl = this.images[this.imgIndex].url
+    }
+}, -->
