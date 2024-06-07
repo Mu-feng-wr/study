@@ -40,18 +40,6 @@
                 timer: ''
             }
         },
-        // 数组方法
-        // images   .length   长度
-        // [index]  获取数据
-        // push()   在后面增加一条数据
-        // pop()    在后面删除一条数据
-        // unshift()    在前面增加一条数据
-        // shift()    在前面删除一条数据
-        // slice(start,end) 
-        // splice(start,num)
-        // join('-')  [1,2,3,4]  '1-2-3-4'
-        // let data = arr.find((item)=>{ return item.id==id})  
-        // let index = arr.findIndex((item)=>{ return item.id==id})  
         created () {
             this.images = [
                 { id: 1, url: '../lianxi/img/dili01.jpeg' },
@@ -60,8 +48,13 @@
                 { id: 4, url: '../lianxi/img/dili04.jpg' },
                 { id: 5, url: '../lianxi/img/dili05.jpg' },
             ]
-            this.imgUrl = this.images[this.imgIndex].url
             this.setLunbo()
+        },
+        watch: {
+            imgIndex () {
+                this.imgUrl = this.images[this.imgIndex].url
+            },
+            immediate: true
         },
         methods: {
             previous () {
@@ -70,7 +63,7 @@
                 if (this.imgIndex < 0) {
                     this.imgIndex = this.images.length - 1
                 }
-                this.imgUrl = this.images[this.imgIndex].url
+
             },
             next () {
                 this.imgIndex++
@@ -78,7 +71,7 @@
                 if (this.imgIndex > this.images.length - 1) {
                     this.imgIndex = 0
                 }
-                this.imgUrl = this.images[this.imgIndex].url
+
             },
             start () {
                 this.setLunbo()
@@ -93,13 +86,11 @@
                     if (this.imgIndex == this.images.length) {
                         this.imgIndex = 0
                     }
-                    this.imgUrl = this.images[this.imgIndex].url
 
                 }, 1000)
             },
             dianHandler (index) {
                 this.imgIndex = index
-                this.imgUrl = this.images[this.imgIndex].url
             }
 
         },
