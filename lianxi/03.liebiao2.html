@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表2</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <link rel="stylesheet" href="../lianxi/style/03.liebiao2.css">
+</head>
+
+<body>
+    <!-- 准备好一个容器 -->
+    <!-- 列表 -->
+    <div id="root">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class='th'>#</th>
+                    <th class='th'>Name</th>
+                    <th class='th'>Sex</th>
+                    <th class='th'>Address</th>
+                    <th class='th'>Active</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 这是一个模板 你把模版注释，还叫模板？ -->
+                <tr v-for="(item,index) in testList" :key="index">
+                    <td class="td">1</td>
+                    <td class="td">Test1</td>
+                    <td class="td">Man</td>
+                    <td class="td">
+                        Shenzhen
+                    </td>
+
+                    <td class="td">
+                        <div class="todo">
+                            <div class="ad" @click="gai">修改</div>
+                            <div class="ad" @click="del">删除</div>
+                        </div>
+                    </td>
+
+                </tr>
+                <!-- <tr>
+                    <td class="td">2</td>
+                    <td class="td">Test2</td>
+                    <td class="td">Women</td>
+                    <td class="td">
+                        Guangzhou
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">3</td>
+                    <td class="td">Test3</td>
+                    <td class="td">Man</td>
+                    <td class="td">
+                        Shanghai
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">4</td>
+                    <td class="td">Test4</td>
+                    <td class="td">Women</td>
+                    <td class="td">
+                        Beijing
+                    </td>
+                </tr> -->
+            </tbody>
+
+
+        </table>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+    Vue.config.productionTip = false//阻止vue在启动时生成生产提示
+
+    new Vue({
+
+        el: '#root',
+        data () {
+            return {
+                testList: [],
+
+            }
+        },
+        created () {
+            this.arr = [
+                { id: 1, Name: 'Test1', Sex: 'Man', Address: 'Shenzhen', Active: '修改, 删除' },
+                { id: 2, Name: 'Test2', Sex: 'Man', Address: 'Guangzhou', Active: '修改, 删除' },
+                { id: 3, Name: 'Test3', Sex: 'Man', Address: 'Beijing', Active: '修改, 删除' },
+                { id: 4, Name: 'Test4', Sex: 'Man', Address: 'Shanghai', Active: '修改, 删除' },
+            ]
+            this.testList = this.arr
+            console.log(this.testList, this.arr[0])
+        },
+        methods: {
+            gai () {
+
+            },
+            del () {
+
+            }
+        },
+
+    })
+
+</script>

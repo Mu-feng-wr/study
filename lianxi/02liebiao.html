@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <link rel="stylesheet" href="../lianxi/style/02.liebiao.css">
+</head>
+
+<body>
+    <!-- 准备好一个容器 -->
+    <!-- 列表 -->
+    <div id="root">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="th">序号</th>
+                    <th class="th">项目名称</th>
+                    <th class="th">图片数量</th>
+                    <th class="th">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,index) in list" :key="index">
+                    <td class="td">1</td>
+                    <td class="td">223dsdsdsds</td>
+                    <td class="td">0</td>
+                    <td class="td">
+                        <div class="todo">
+                            <div class="ad" @click="gai">修改</div>
+                            <div class="ad" @click="del">删除</div>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <!-- <tr>
+                    <td class="td">2</td>
+                    <td class="td">223dsdsdsds</td>
+                    <td class="td">0</td>
+                    <td class="td">
+                        <div class="todo">
+                            <div class="ad">修改</div>
+                            <div class="ad">删除</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">3</td>
+                    <td class="td">223dsdsdsds</td>
+                    <td class="td">0</td>
+                    <td class="td">
+                        <div class="todo">
+                            <div class="ad">修改</div>
+                            <div class="ad">删除</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">4</td>
+                    <td class="td">223dsdsdsds</td>
+                    <td class="td">0</td>
+                    <td class="td">
+                        <div class="todo">
+                            <div class="ad">修改</div>
+                            <div class="ad">删除</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">5</td>
+                    <td class="td">223dsdsdsds</td>
+                    <td class="td">0</td>
+                    <td class="td">
+                        <div class="todo">
+                            <div class="ad">修改</div>
+                            <div class="ad">删除</div>
+                        </div>
+                    </td>
+                </tr> -->
+
+        </table>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+    Vue.config.productionTip = false//阻止vue在启动时生成生产提示
+
+    new Vue({
+
+        el: '#root',
+        data () {
+            return {
+                list: []
+            }
+        },
+        created () {
+
+            this.list.push()
+        },
+        methods: {
+            gai () {
+
+            },
+            del () {
+
+            },
+        },
+
+    })
+
+</script>

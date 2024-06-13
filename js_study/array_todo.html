@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script>
+    // 数组方法
+    // images   .length   长度
+    // [index]  获取数据
+    // Array.push()   在后面增加一条数据
+    // Array.pop()    在后面删除一条数据
+    // Array.unshift()    在前面增加一条数据
+    // Array.shift()    在前面删除一条数据
+    // Array.slice(start,end) 
+    // Array.splice(start,num)
+    // Array.join('-')  [1,2,3,4]  '1-2-3-4'
+    // let data = Array.find((item)=>{ return item.id==id})  
+    // let index = Array.findIndex((item)=>{ return item.id==id})  
+    let arr = [
+        { id: 1, url: '../lianxi/img/dili01.jpeg' },
+        { id: 2, url: '../lianxi/img/dili02.jpg' },
+        { id: 3, url: '../lianxi/img/dili03.jpeg' },
+        { id: 4, url: '../lianxi/img/dili04.jpg' },
+        { id: 5, url: '../lianxi/img/dili05.jpg' }
+    ]
+    // var result = arr.push({ id: 5, url: '../lianxi/img/dili05.jpg' })
+    // var result = arr.pop({ id: 5, url: '../lianxi/img/dili05.jpg' })
+    // var result = arr.unshift({ id: 5, url: '../lianxi/img/dili05.jpg' })
+    // var result = arr.slice(0, 2)
+    var result = arr.splice(0, 1, { id: 5, url: '../lianxi/img/dili05.jpg' })
+
+    console.log(arr.length)
+    console.log(arr[1])
+    console.log(result)
+</script>

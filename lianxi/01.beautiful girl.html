@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01.beautiful girl</title>
     <script src="../js/vue.js"></script>
-    <link rel="stylesheet" href="../lianxi/css/01.beautiful.css">
+    <link rel="stylesheet" href="../lianxi/style/01.beautiful.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
             <img src="../lianxi/img/icon_arrow_left.png" alt="" class="icon-left" @click="previous">
             <img src="../lianxi/img/icon_arrow_left.png" alt="" class="icon-right" @click="next">
             <div class="dian">
-                <div class="xiaoDian" :class="index==imgIndex?'active':''" v-for="(p,index) in images" :key="p.id"
+                <div class="xiaoDian" :class="index==imgIndex?'active':''" v-for="(p,index) in images" :key="index"
                     @click="dianHandler(index)">
                 </div>
             </div>
@@ -43,22 +43,22 @@
         // 数组方法
         // images   .length   长度
         // [index]  获取数据
-        // push()   在后面增加一条数据
-        // pop()    在后面删除一条数据
-        // unshift()    在前面增加一条数据
-        // shift()    在前面删除一条数据
-        // slice(start,end) 
-        // splice(start,num)
-        // join('-')  [1,2,3,4]  '1-2-3-4'
-        // let data = arr.find((item)=>{ return item.id==id})  
-        // let index = arr.findIndex((item)=>{ return item.id==id})  
+        // Array.push()   在后面增加一条数据
+        // Array.pop()    在后面删除一条数据
+        // Array.unshift()    在前面增加一条数据
+        // Array.shift()    在前面删除一条数据
+        // Array.slice(start,end) 
+        // Array.splice(start,num)
+        // Array.join('-')  [1,2,3,4]  '1-2-3-4'
+        // let data = Array.find((item)=>{ return item.id==id})  
+        // let index = Array.findIndex((item)=>{ return item.id==id})  
         created () {
             this.images = [
                 { id: 1, url: '../lianxi/img/dili01.jpeg' },
                 { id: 2, url: '../lianxi/img/dili02.jpg' },
                 { id: 3, url: '../lianxi/img/dili03.jpeg' },
                 { id: 4, url: '../lianxi/img/dili04.jpg' },
-                { id: 5, url: '../lianxi/img/dili05.jpg' },
+                { id: 5, url: '../lianxi/img/dili05.jpg' }
             ]
             this.imgUrl = this.images[this.imgIndex].url
             this.setLunbo()
