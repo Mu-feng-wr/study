@@ -27,14 +27,13 @@
             </thead>
             <tbody>
                 <!-- 这是一个模板 你把模版注释，还叫模板？ -->
-                <tr v-for="(item,index) in testList" :key="index">
+                <tr v-for="(item,index) in testList" :key="item.id">
                     <td class="td">1</td>
                     <td class="td">Test1</td>
                     <td class="td">Man</td>
                     <td class="td">
                         Shenzhen
                     </td>
-
                     <td class="td">
                         <div class="todo">
                             <div class="ad" @click="gai">修改</div>
@@ -94,8 +93,6 @@
                 { id: 3, Name: 'Test3', Sex: 'Man', Address: 'Beijing', Active: '修改, 删除' },
                 { id: 4, Name: 'Test4', Sex: 'Man', Address: 'Shanghai', Active: '修改, 删除' },
             ]
-            this.testList = this.arr
-            console.log(this.testList, this.arr[0])
         },
         methods: {
             gai () {
