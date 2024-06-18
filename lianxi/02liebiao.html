@@ -95,12 +95,14 @@
         el: '#root',
         data () {
             return {
-                list: []
+                list: [, , ,]
             }
         },
         created () {
+            // this.list = [{ id: 1, 序号: 1, 项目名称: '12345', 图片数量: 2, 操作: '修改,删除' }]
 
-            this.list.push()
+
+            this.list.push(1, 2, 3)
         },
         methods: {
             gai () {

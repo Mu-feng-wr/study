@@ -93,13 +93,14 @@
                 { id: 3, Name: 'Test3', Sex: 'Man', Address: 'Beijing', Active: '修改, 删除' },
                 { id: 4, Name: 'Test4', Sex: 'Man', Address: 'Shanghai', Active: '修改, 删除' },
             ]
+            this.testList = this.arr
         },
         methods: {
             gai () {
-
+                this.testList.splice(0, 1, { id: 2, Name: 'Test2', Sex: 'Man', Address: 'Guangzhou', Active: '修改, 删除' })
             },
             del () {
-
+                this.testList.shift(0)
             }
         },
 
