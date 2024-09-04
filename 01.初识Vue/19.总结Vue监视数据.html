@@ -23,7 +23,7 @@
                 (2).如需给后面添加的属性做响应式，请使用如下API：
                     Vue.set(target.propertName/index,value)或
                     vm.$set(target.propertName/index,value)
-			
+					//this.$set（需要改变的对象，需要改变的对象属性，新值）
 		 3.如何监测数组中的数据？
 
             通过包裹数组更新元素的方法实现，本质就是做了两件事情：
@@ -114,6 +114,7 @@
                 // this.student.hobby.splice(0, 1, '开车')
                 // Vue.set(this.student.hobby, 0, '开车')
                 this.$set(this.student.hobby, 0, '开车')
+				//this.$set（需要改变的对象，需要改变的对象属性，新值）
             },
             removeSmoke () {
                 this.student.hobby = this.student.hobby.filter((h) => {

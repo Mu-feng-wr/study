@@ -25,64 +25,27 @@
             </thead>
             <tbody>
                 <tr v-for="(item,index) in list" :key="index">
-                    <td class="td">1</td>
-                    <td class="td">223dsdsdsds</td>
-                    <td class="td">0</td>
+                    <td class="td">{{index+1}}</td>
+                    <td class="td">{{item.name}}</td>
+                    <td class="td">{{item.count}}</td>
                     <td class="td">
                         <div class="todo">
-                            <div class="ad" @click="gai">修改</div>
-                            <div class="ad" @click="del">删除</div>
+                            <div class="ad" @click="gai(item,index)">修改</div>
+                            <div class="ad" @click="del(item,index)">删除</div>
                         </div>
                     </td>
                 </tr>
-
-
-                <!-- <tr>
-                    <td class="td">2</td>
-                    <td class="td">223dsdsdsds</td>
-                    <td class="td">0</td>
-                    <td class="td">
-                        <div class="todo">
-                            <div class="ad">修改</div>
-                            <div class="ad">删除</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td">3</td>
-                    <td class="td">223dsdsdsds</td>
-                    <td class="td">0</td>
-                    <td class="td">
-                        <div class="todo">
-                            <div class="ad">修改</div>
-                            <div class="ad">删除</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td">4</td>
-                    <td class="td">223dsdsdsds</td>
-                    <td class="td">0</td>
-                    <td class="td">
-                        <div class="todo">
-                            <div class="ad">修改</div>
-                            <div class="ad">删除</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td">5</td>
-                    <td class="td">223dsdsdsds</td>
-                    <td class="td">0</td>
-                    <td class="td">
-                        <div class="todo">
-                            <div class="ad">修改</div>
-                            <div class="ad">删除</div>
-                        </div>
-                    </td>
-                </tr> -->
-
         </table>
+		<div class="btnBox">
+			<input v-model='editData.name' type="text" placeholder="name"/>
+			<input  v-model='editData.count' type="text" placeholder="count"/>
+			<button @click='edit'>修改</button>
+		</div>
+		<div class="btnBox">
+			<input  v-model='addData.name' type="text" placeholder="name"/>
+			<input  v-model='addData.count' type="text" placeholder="count"/>
+			<button @click="add">添加</button>
+		</div>
     </div>
 </body>
 
@@ -95,22 +58,51 @@
         el: '#root',
         data () {
             return {
-                list: [, , ,]
+                list: [],
+				testIndex:0,
+				addData:{},
+				editData:{},
+				
             }
         },
         created () {
-            // this.list = [{ id: 1, 序号: 1, 项目名称: '12345', 图片数量: 2, 操作: '修改,删除' }]
+            this.list = [
+				{  name: '345', count: 2},
+				{ name: '456', count: 1},
+				{ name: '789', count: 3},
+				{ name: '963', count: 2}
+			]
 
 
-            this.list.push(1, 2, 3)
+          
         },
         methods: {
-            gai () {
-
+            gai (item,index) {
+			this.editData = JSON.parse(JSON.stringify(item))
+			this.testIndex = index
             },
-            del () {
-
+            del (item,index) {
+			this.list.splice(index,1)
             },
+			edit(){
+				if(this.editData.name&&this.editData.count){
+					//this.$set（需要改变的对象，需要改变的对象属性，新值）
+					this.$set(this.list,this.testIndex,this.editData)
+					this.editData={}
+				}else{
+					alert('填写完整数据')
+				}
+				
+			},
+			add(){
+				if(this.addData.name&&this.addData.count){
+					this.list.push(this.addData)
+					this.addData={}
+				}else{
+					alert('填写完整数据')
+				}
+			}
+			
         },
 
     })
